@@ -1,6 +1,5 @@
 package com.chrosciu.rxbattleships.service;
 
-import com.chrosciu.rxbattleships.exception.NotImplementedException;
 import com.chrosciu.rxbattleships.gui.BoardMouseAdapter;
 import com.chrosciu.rxbattleships.model.Field;
 import lombok.RequiredArgsConstructor;
@@ -14,6 +13,6 @@ public class FieldFluxServiceImpl implements FieldFluxService {
 
     @Override
     public Flux<Field> getFieldFlux() {
-        return Flux.error(new NotImplementedException());
+        return Flux.create(sink -> boardMouseAdapter.registerFieldListener(sink::next));
     }
 }

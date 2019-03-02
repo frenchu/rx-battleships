@@ -23,7 +23,6 @@ public class FieldFluxServiceTest {
     private List<Field> fields = Arrays.asList(new Field(0, 0), new Field(1, 2));
 
     @Test
-    @Ignore
     public void getFieldFluxTest() {
         //given
         doAnswer(invocationOnMock -> {

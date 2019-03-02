@@ -25,7 +25,6 @@ public class BattleServiceTest {
     private BattleService battleService = new BattleServiceImpl(shipPositionFluxService, fieldFluxService);
 
     @Test
-    @Ignore
     public void getShipsReadyMonoTest() {
         //given
         ShipPosition firstPosition = new ShipPosition(new Field(0, 0), 1, true);
@@ -55,7 +54,6 @@ public class BattleServiceTest {
     }
 
     @Test
-    @Ignore
     public void getStampFluxTest() {
         //given
         List<Field> fields = Arrays.asList(

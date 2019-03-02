@@ -6,6 +6,10 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import reactor.core.publisher.Flux;
 
+import java.util.Arrays;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
+
 @Component
 @RequiredArgsConstructor
 public class ShipPositionFluxServiceImpl implements ShipPositionFluxService {
@@ -14,6 +18,9 @@ public class ShipPositionFluxServiceImpl implements ShipPositionFluxService {
 
     @Override
     public Flux<ShipPosition> getShipPositionFlux() {
-        return Flux.error(new NotImplementedException());
+        Stream<Integer> shipSizesStream = Arrays.stream(constantsService.getShipSizes())
+            .boxed();
+        return Flux.fromStream(shipSizesStream)
+            .map(shipPlacementService::placeShip);
     }
 }

@@ -21,7 +21,6 @@ public class ShipPositionFluxServiceTest {
     private final ShipPosition secondShipPosition = new ShipPosition(new Field(2, 3), shipSizes[1], false);
 
     @Test
-    @Ignore
     public void getShipPositionFluxTest() {
         //given
         when(constantsService.getShipSizes()).thenReturn(shipSizes);
